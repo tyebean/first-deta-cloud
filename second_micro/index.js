@@ -29,6 +29,14 @@ app.get('/users/:id', async (req, res) => {
   }
 });
 
+app.put('/users/:id', async (req, res) => {
+  const { id } = req.params;
+  const { name, age, hometown } = req.body;
+  const toPut = { key: id, name, age, hometown };
+  const newItem = await db.put(toPut);
+  return res.json(newItem)
+});
+
 //https://stackoverflow.com/questions/24113226/how-to-set-headers-in-node-js
 
 
