@@ -37,7 +37,10 @@ app.put('/users/:id', async (req, res) => {
   return res.json(newItem)
 });
 
-//https://stackoverflow.com/questions/24113226/how-to-set-headers-in-node-js
-
+app.delete('/users/:id', async (req, res) => {
+  const { id } = req.params;
+  await db.delete(id);
+  res.json({"message": "deleted"})
+});
 
 module.exports = app;
