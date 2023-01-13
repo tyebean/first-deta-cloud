@@ -1,3 +1,0 @@
-// hello!
-const { Deta } = require('deta'); // import Deta
-console.log("Hello World")
