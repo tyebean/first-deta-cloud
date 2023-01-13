@@ -1,35 +1,33 @@
+// * --------- configure app -------------
 const express = require('express');
 const { Deta } = require("deta")
-const app = express(); 
-const deta = Deta(process.env.X_API_Key)
-const db = deta.Base("default-db")
+const deta = Deta(process.env.PROJECT_KEY); // configure your Deta project
+const db = deta.Base("default-db")  // access your DB
+const app = express(); // instantiate express
+app.use(express.json()) // for parsing application/json bodies
 
-const books = deta.Base('books'); 
-const posts = deta.Base('posts');
-const coworkers = deta.Base('coworkers'); 
-
+// *
 
 app.get('/', async (req, res) => {
   res.send('Hello World')
 });
 
-db.put({
-    name: "Geordi",
-    title: "Chief Engineer",
-    has_visor: true
-})
+app.post('/users', async (req, res) => {
+  const { name, age, hometown } = req.body;
+  const toCreate = { name, age, hometown};
+  const insertedUser = await db.put(toCreate); // put() will autogenerate a key for us
+  res.status(201).json(insertedUser);
+});
 
-// store objects
-// a key will be automatically generated 
-db.put({name: "alex", age: 30})
-
-// store simple types
-db.put("hello, worlds")
-db.put(7)
-
-// "success" is the value and "smart_work" is the key. 
-await db.put("success", "smart_work")
-await db.put(["a", "b", "c"], "my_abc")
+app.get('/users/:id', async (req, res) => {
+  const { id } = req.params;
+  const user = await db.get(id);
+  if (user) {
+      res.json(user);
+  } else {
+      res.status(404).json({"message": "user not found"});
+  }
+});
 
 //https://stackoverflow.com/questions/24113226/how-to-set-headers-in-node-js
 
