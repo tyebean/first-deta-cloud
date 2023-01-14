@@ -1,0 +1,4 @@
+this is a SDK - Software development kit
+https://www.ibm.com/cloud/blog/sdk-vs-api
+and does not work the sanme way that an api does
+big AHA moment ---------------------------------
