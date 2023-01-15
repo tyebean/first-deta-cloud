@@ -8,12 +8,15 @@ app.use(express.json()) // for parsing application/json bodies
 const db = deta.Base("default-db")
 const blog_base = deta.Base("blog-base")
 
-// test
+// * test
 app.get('/', async (req, res) => {
   res.send('Hello World')
 });
 
-// create a user
+// * ------------- users -------------
+
+
+// * create a user
 app.post('/users', async (req, res) => {
   const { name, age, hometown } = req.body;
   const toCreate = { name, age, hometown};
@@ -21,7 +24,7 @@ app.post('/users', async (req, res) => {
   res.status(201).json(insertedUser);
 });
 
-// get all users
+// * get all users
 app.get('/users', async (req, res) => {
   const users = await db.fetch()
   if (users) {
@@ -33,15 +36,7 @@ app.get('/users', async (req, res) => {
 }
 });
 
-//create a blog
-app.post('/blogs', async (req, res) => {
-  const { title, subtitle, content } = req.body;
-  const toCreate = { title, subtitle, content };
-  const addBlog = await blog_base.put(toCreate); // put() will autogenerate a key for us
-  res.status(201).json(addBlog);
-});
-
-// get a specific user
+// *  get a specific user
 app.get('/users/:id', async (req, res) => {
   const { id } = req.params;
   const user = await db.get(id);
@@ -52,7 +47,7 @@ app.get('/users/:id', async (req, res) => {
   }
 });
 
-// update a specific user
+// * update a specific user
 app.put('/users/:id', async (req, res) => {
   const { id } = req.params;
   const { name, age, hometown } = req.body;
@@ -61,11 +56,21 @@ app.put('/users/:id', async (req, res) => {
   return res.json(newItem)
 });
 
-// delete a user, does not wait for confirmation
+// * delete a user, does not wait for confirmation
 app.delete('/users/:id', async (req, res) => {
   const { id } = req.params;
   await db.delete(id);
   res.json({"message": "deleted"})
+});
+
+// * ------------- blogs -------------
+
+// * create a blog
+app.post('/blogs', async (req, res) => {
+  const { title, subtitle, content } = req.body;
+  const toCreate = { title, subtitle, content };
+  const addBlog = await blog_base.put(toCreate); // put() will autogenerate a key for us
+  res.status(201).json(addBlog);
 });
 
 module.exports = app;
