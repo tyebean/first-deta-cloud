@@ -8,7 +8,6 @@ app.use(express.json()) // for parsing application/json bodies
 const db = deta.Base("default-db")
 const blog_base = deta.Base("blog-base")
 
-
 // test
 app.get('/', async (req, res) => {
   res.send('Hello World')
