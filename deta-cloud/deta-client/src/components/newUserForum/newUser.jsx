@@ -36,15 +36,26 @@ const NewUser = props => {
           {submitted && !value.text ? (
             <span>Fill out the forum first.</span>
           ) : null}
-
           <input
             onChange={handleTxtChange}
             value={value.text}
             type="text"
-            placeholder="Who is the new user?"
+            placeholder="Name"
+            name="text" />
+          <input
+            onChange={handleTxtChange}
+            value={value.text}
+            type="text"
+            placeholder="Age"
+            name="text" />
+          <input
+            onChange={handleTxtChange}
+            value={value.text}
+            type="text"
+            placeholder="Hometown"
             name="text" />
           <button
-            type="submit">Post</button>
+            type="submit">Sign Up</button>
         </form>
       </div>
     </>
