@@ -5,9 +5,9 @@ import '../newUserForum/newUser.css'
 const NewUser = props => {
 
   const [value, setValue] = useState({
+    name: "",
     age: "",
     hometown: "",
-    name: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -34,28 +34,28 @@ const NewUser = props => {
             <div className="success-msg">Review Submit Successful 🎉</div>
           ) : null}
           {submitted && !value.text ? (
-            <span>Fill out the forum first.</span>
+            <span>Fill out the forum first</span>
           ) : null}
           <input
             onChange={handleTxtChange}
-            value={value.text}
+            value={value.name}
             type="text"
             placeholder="Name"
             name="text" />
           <input
             onChange={handleTxtChange}
-            value={value.text}
+            value={value.age}
             type="text"
             placeholder="Age"
             name="text" />
           <input
             onChange={handleTxtChange}
-            value={value.text}
+            value={value.hometown}
             type="text"
             placeholder="Hometown"
             name="text" />
           <button
-            type="submit">Sign Up</button>
+            type="submit">Add User</button>
         </form>
       </div>
     </>
