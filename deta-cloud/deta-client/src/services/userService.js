@@ -5,7 +5,7 @@ export const getAllUsers = async () => {
   return res.data
 }
 
-export const getOneUser = async (user_key) => {
+export const getUser = async (user_key) => {
   const res = await api.get(`/users/${user_key}`)
   return res.data
 }
