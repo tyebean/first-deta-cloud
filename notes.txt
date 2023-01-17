@@ -9,3 +9,6 @@ i should be able to delete and update only my users
 
 for simplicity, anyone can add and read users
 i still need auth to determine wether or not someone can delete or update a user
+
+Current Blocker:
+Adding a user
