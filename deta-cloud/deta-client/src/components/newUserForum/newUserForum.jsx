@@ -1,5 +1,6 @@
 import { useState } from "react";
 import '../newUserForum/newUserForum.css'
+import { createUser } from "../../services/userService.js";
 
 const NewUser = props => {
 
