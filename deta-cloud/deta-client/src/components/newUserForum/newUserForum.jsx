@@ -13,7 +13,9 @@ const NewUser = props => {
   const [valid, setValid] = useState(false);
 
   const handleTxtChange = event => {
-    setValue({ ...userData, text: event.target.value });
+    const { id, value } = event.target
+    event.preventDefault();
+    setUserData({ ...userData, [id]: value });
   };
 
   const handleSubmit = event => {
@@ -35,21 +37,21 @@ const NewUser = props => {
           {submitted && !userData.text ? (
             <span>Fill out the forum first</span>
           ) : null}
-          <input
+          <input 
+            id="name"
             onChange={handleTxtChange}
-            value={userData.name}
             type="text"
             placeholder="Name"
             name="text" />
           <input
+            id="age"
             onChange={handleTxtChange}
-            value={userData.age}
             type="text"
             placeholder="Age"
             name="text" />
           <input
+            id="hometown"
             onChange={handleTxtChange}
-            value={userData.hometown}
             type="text"
             placeholder="Hometown"
             name="text" />
