@@ -1,11 +1,11 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import NewUserForum from '../src/components/newUserForum/newUserForum.jsx'
-import * as userService from "./services/userService.js";
+// import { useState } from "react";
+// import * as userService from "./services/userService.js";
 
 function App() {
-  const [user, setUser] = useState(userService.getUser());
+  // const [user, setUser] = useState(userService.getUser());
 
   function handleAddUser (params) {
     

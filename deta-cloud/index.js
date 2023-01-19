@@ -6,10 +6,12 @@ const app = express(); // instantiate express
 app.use(express.json()) // for parsing application/json bodies
 
 // * --------- cors middleware -------------
-// install cors
-// import cors
-// (?) app.use cors
-
+import cors from 'cors'
+const cors = require('cors')
+app.use(cors({
+  origin: "*",
+  methods: "*"
+}))
 
 // * --------- access databases -------------
 const db = deta.Base("default-db")
