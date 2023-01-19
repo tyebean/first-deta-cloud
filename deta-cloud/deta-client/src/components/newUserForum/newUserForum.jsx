@@ -19,10 +19,10 @@ const NewUser = props => {
     setUserData({ ...userData, [id]: value });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event, data) => {
     event.preventDefault();
-    props.handleAddUser(userData);
-    if (userData.text) {
+    await createUser(data)
+    if (userData) {
       setValid(true);
     }
     setSubmitted(true);
@@ -31,14 +31,14 @@ const NewUser = props => {
   return (
     <>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e, userData)}>
           {submitted && valid ? (
             <div className="success-msg">Review Submit Successful 🎉</div>
           ) : null}
           {submitted && !userData.text ? (
             <span>Fill out the forum first</span>
           ) : null}
-          <input 
+          <input
             id="name"
             onChange={handleTxtChange}
             type="text"

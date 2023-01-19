@@ -4,6 +4,13 @@ const { Deta } = require("deta")
 const deta = Deta(process.env.PROJECT_KEY); // configure your Deta project
 const app = express(); // instantiate express
 app.use(express.json()) // for parsing application/json bodies
+
+// * --------- cors middleware -------------
+// install cors
+// import cors
+// (?) app.use cors
+
+
 // * --------- access databases -------------
 const db = deta.Base("default-db")
 const blog_base = deta.Base("blog-base")
