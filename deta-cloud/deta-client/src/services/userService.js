@@ -1,5 +1,10 @@
 import { api } from './apiConfig.js'
 
+export const createUser = async (data) => {
+  const res = await api.post('/users', data)
+  return res.data
+}
+
 export const getAllUsers = async () => {
   const res = await api.get('/users')
   return res.data
