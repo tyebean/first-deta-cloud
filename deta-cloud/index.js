@@ -28,10 +28,7 @@ app.post('/users', async (req, res) => {
   const { name, age, hometown } = req.body;
   const toCreate = { name, age, hometown};
   const insertedUser = await db.put(toCreate); // put() will autogenerate a key for us
-  res.status(201).json(insertedUser);
-});
-
-// * get all users
+  res.status(201).json(insertedUser);git 
 app.get('/users', async (req, res) => {
   const users = await db.fetch()
   if (users) {
