@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../newUserForum/newUser.css'
+import '../newUserForum/newUserForum.css'
 
 const NewUser = props => {
 

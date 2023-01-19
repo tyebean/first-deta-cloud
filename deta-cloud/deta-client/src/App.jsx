@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import NewUser from '../src/components/newUserForum/newUser.jsx'
+import NewUserForum from '../src/components/newUserForum/newUserForum.jsx'
 import * as userService from "./services/userService.js";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/users" element={<NewUser handleAddUser={handleAddUser} />} />
+        <Route path="/users" element={<NewUserForum handleAddUser={handleAddUser} />} />
       </Routes>
     </div>
   );
