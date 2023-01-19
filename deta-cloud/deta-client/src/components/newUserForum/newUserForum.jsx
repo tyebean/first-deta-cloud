@@ -3,7 +3,7 @@ import '../newUserForum/newUserForum.css'
 
 const NewUser = props => {
 
-  const [value, setValue] = useState({
+  const [userData, setUserData] = useState({
     name: "",
     age: "",
     hometown: "",
@@ -13,13 +13,13 @@ const NewUser = props => {
   const [valid, setValid] = useState(false);
 
   const handleTxtChange = event => {
-    setValue({ ...value, text: event.target.value });
+    setValue({ ...userData, text: event.target.value });
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.handleAddUser(value);
-    if (value.text) {
+    props.handleAddUser(userData);
+    if (userData.text) {
       setValid(true);
     }
     setSubmitted(true);
@@ -32,24 +32,24 @@ const NewUser = props => {
           {submitted && valid ? (
             <div className="success-msg">Review Submit Successful 🎉</div>
           ) : null}
-          {submitted && !value.text ? (
+          {submitted && !userData.text ? (
             <span>Fill out the forum first</span>
           ) : null}
           <input
             onChange={handleTxtChange}
-            value={value.name}
+            value={userData.name}
             type="text"
             placeholder="Name"
             name="text" />
           <input
             onChange={handleTxtChange}
-            value={value.age}
+            value={userData.age}
             type="text"
             placeholder="Age"
             name="text" />
           <input
             onChange={handleTxtChange}
-            value={value.hometown}
+            value={userData.hometown}
             type="text"
             placeholder="Hometown"
             name="text" />
