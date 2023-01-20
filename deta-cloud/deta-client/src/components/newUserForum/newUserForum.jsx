@@ -33,7 +33,7 @@ const NewUser = props => {
       <div>
         <form onSubmit={(e) => handleSubmit(e, userData)}>
           {submitted && valid ? (
-            <div className="success-msg">Review Submit Successful 🎉</div>
+            <div className="success-msg">Mission Success 🎉</div>
           ) : null}
           {submitted && !userData.text ? (
             <span>Fill out the forum first</span>
