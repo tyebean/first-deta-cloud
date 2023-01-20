@@ -6,7 +6,6 @@ const app = express(); // instantiate express
 app.use(express.json()) // for parsing application/json bodies
 
 // * --------- cors middleware -------------
-import cors from 'cors'
 const cors = require('cors')
 app.use(cors({
   origin: "*",
