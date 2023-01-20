@@ -35,8 +35,8 @@ const NewUser = props => {
           {submitted && valid ? (
             <div className="success-msg">Mission Success 🎉</div>
           ) : null}
-          {submitted && !userData.text ? (
-            <span>Fill out the forum first</span>
+          {submitted && !userData ? (
+            <span>There was an issue with your forum</span>
           ) : null}
           <input
             id="name"

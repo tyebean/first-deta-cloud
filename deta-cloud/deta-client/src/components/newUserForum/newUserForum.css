@@ -1,0 +1,20 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+
+input {
+  border-radius: 2px solid red;
+  height: 4.5rem;
+  width: 50.2rem;
+}
+
+button {
+  height: 4.5rem;
+  width: 50.2rem;
+}
