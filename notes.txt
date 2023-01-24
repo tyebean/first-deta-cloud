@@ -1,14 +1,2 @@
-simple front-end crud:
 
-aaus:
-i should be able to create a user
-i should be redirected to a page to look at my user info
-i should be able to see all users
-i should be able to delete and update only my users
-  i should not be able to delete/update other ppl's users
 
-for simplicity, anyone can add and read users
-i still need auth to determine wether or not someone can delete or update a user
-
-Current Blocker:
-Adding a user
